@@ -8,4 +8,6 @@
         
 ## set env
 
-        $ ~/.pyenv/versions/VERSION_PATH/share/OpenCV/lbpcascades/lbpcascade_animeface.xml
+        $ cd ~/.pyenv/versions/VERSION_PATH/share/OpenCV/lbpcascades/
+
+        $ wget https://raw.githubusercontent.com/nagadomi/lbpcascade_animeface/master/lbpcascade_animeface.xml
