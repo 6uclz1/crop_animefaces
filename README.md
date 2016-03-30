@@ -2,9 +2,9 @@
 
 ## env
 
-        OSX        10.11.4
-        anaconda2  2.5.0
-        OpenCV     2.4.12
+        OSX 10.11.4
+        OpenCV 2.4.12
+        anaconda2 2.5.0
 
 ## usage
 
