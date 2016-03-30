@@ -3,7 +3,12 @@ import sys
 import os.path
 
 dirname = 'output'
-cascade_file = "lbpcascade_animeface.xml"
+cascade_file = "~/.pyenv/versions/anaconda2-2.5.0/\
+                  share/OpenCV/lbpcascades/lbpcascade_frontalcatface.xml"
+directory = sys.argv[2]
+
+if not os.path.exists(directory):
+    os.makedirs(directory)
 
 def detect(image):
     cascade = cv2.CascadeClassifier(cascade_file)
