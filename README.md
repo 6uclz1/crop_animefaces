@@ -2,9 +2,9 @@
 
 ## usage
 
-        $ animefaces_image.py OUTPUT_IMAGE_CREATE_FOLDERNAME
+        $ animefaces_image.py OUTPUT_IMAGE_(CREATE)_FOLDERNAME
         
-        $ animefaces_video.py VIDEO_PATH OUTPUT_CREATE_FOLDERNAME
+        $ animefaces_video.py VIDEO_PATH OUTPUT_(CREATE)_FOLDERNAME
         
 ## set env
 
