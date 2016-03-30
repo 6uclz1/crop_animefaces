@@ -4,7 +4,7 @@ import os.path
 
 dirname = 'output'
 cascade_file = "~/.pyenv/versions/anaconda2-2.5.0/\
-                  share/OpenCV/lbpcascades/lbpcascade_frontalcatface.xml"
+                  share/OpenCV/lbpcascades/lbpcascade_animeface.xml"
 directory = sys.argv[2]
 
 if not os.path.exists(directory):
@@ -23,6 +23,7 @@ def detect(image):
 video_path = sys.argv[1]
 cptr = cv2.VideoCapture(video_path)
 frame_num = 0
+frame_num_face = 0
 
 while(1):
     frame_num += 1
@@ -40,8 +41,10 @@ while(1):
             cv2.imwrite(os.path.join(dirname,
                                      "frame_"\
                                      + str(frame_num).zfill(8)\
+                                     + str(frame_num_face).zfill(8)\
                                      + ".jpg"),
                         crop)
-            print str(frame_num).zfill(8)
+            print str(frame_num_face).zfill(8)
+            frame_num_face += 1
 
 cptr.release()

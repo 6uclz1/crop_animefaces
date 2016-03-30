@@ -3,11 +3,17 @@ import sys
 import glob
 import os
 
-cascade_file = "~/.pyenv/versions/anaconda2-2.5.0/\
-                  share/OpenCV/lbpcascades/lbpcascade_frontalcatface.xml"
+cascade_file = str(os.path.expanduser('~')) + "/.pyenv/versions/\
+anaconda2-2.5.0/share/OpenCV/lbpcascades/lbpcascade_animeface.xml"
+
 directory = sys.argv[1]
 
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
 def detect(image):
+    if not os.path.isfile(cascade_file):
+        raise RuntimeError("%s: not found" % cascade_file)
     cascade = cv2.CascadeClassifier(cascade_file)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.equalizeHist(gray)
@@ -18,18 +24,14 @@ def detect(image):
     print faces
     return faces
 
-if not os.path.exists(directory):
-    os.makedirs(directory)
-
 for image_files in glob.glob('*.jpg'):
+    face_num = 0
     image = cv2.imread(image_files)
     faces = detect(image)
     print image_files
 
     for (x, y, w, h) in faces:
-        num01 = 0
         crop = image[y:y + h, x:x + w]
-        cv2.imwrite(os.path.join(directory,
-                    str(num01).zfill(8) + str(image_files) + ".jpg"),
-                    crop)
-        num01 += 1
+        savename = str(face_num).zfill(4) + str(image_files) + '.jpg'
+        cv2.imwrite(os.path.join(directory, savename), crop)
+        face_num += 1
