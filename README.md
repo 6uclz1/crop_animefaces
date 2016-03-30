@@ -6,4 +6,6 @@
         
         $ animefaces_video.py VIDEO_PATH
         
-##
+## set env
+
+        $ ~/.pyenv/versions/VERSION_PATH/share/OpenCV/lbpcascades/lbpcascade_animeface.xml
