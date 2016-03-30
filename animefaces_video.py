@@ -3,8 +3,11 @@ import sys
 import os.path
 
 dirname = 'output'
-cascade_file = "~/.pyenv/versions/anaconda2-2.5.0/\
-                  share/OpenCV/lbpcascades/lbpcascade_animeface.xml"
+
+cascade_file = \
+str(os.path.expanduser('~')) + "/.pyenv/versions/\
+anaconda2-2.5.0/share/OpenCV/lbpcascades/lbpcascade_animeface.xml"
+
 directory = sys.argv[2]
 
 if not os.path.exists(directory):
